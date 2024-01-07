@@ -4,10 +4,22 @@ const shuffleArray = (array) => {
 };
 
 export const fetchQuizData = async (difficulty, amount) => {
-  const url = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
-  const data = await (await fetch(url)).json();
-  return data.results.map((dt) => ({
-    ...dt,
-    answers: shuffleArray([...dt.incorrect_answers, dt.correct_answers]),
-  }));
+  try {
+    const url = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
+    const response = await fetch(url);
+    const data = await response.json();
+
+    // Kontrol: API'den gelen data'nın varlığını kontrol et
+    if (!data || !data.results) {
+      throw new Error("Quiz data not available.");
+    }
+
+    return data.results.map((dt) => ({
+      ...dt,
+      answers: shuffleArray([...dt.incorrect_answers, dt.correct_answers]),
+    }));
+  } catch (error) {
+    console.error("Error fetching or processing quiz data:", error);
+    throw error;
+  }
 };
