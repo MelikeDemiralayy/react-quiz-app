@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Quiz.css";
 import { useParams } from "react-router-dom";
 import * as api from "../../api/api";
-import QuestionsCard from "../../components/components/questionsCard/QuestionsCard";
+import QuestionsCard from "../../components/questionsCard/QuestionsCard";
 const Quiz = () => {
   const { difficulty, amount } = useParams();
   const [questionsData, setQuestionsData] = useState([]); //ekranda dönen dataları tutmak için

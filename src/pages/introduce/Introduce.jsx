@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Introduce.css";
-import Dropdown from "../../components/components/dropdown/Dropdown";
+import Dropdown from "../../components/dropdown/Dropdown";
 import { useNavigate } from "react-router-dom";
 const Introduce = () => {
   const difficulty = ["easy", "medium", "hard"];
