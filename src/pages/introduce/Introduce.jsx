@@ -17,7 +17,7 @@ const Introduce = () => {
     <div className="introduce">
       <div className="introduce-container">
         <img
-          src="https://t3.ftcdn.net/jpg/03/59/62/74/360_F_359627491_x8biSLaSBHJdxMoKahFd6xlecILJlfRY.jpg"
+          src="https://cdn.now.gg/apps-content/com.trivia.star.android/logo/trivia-star-quiz-games-offline.png"
           alt=""
         />
         <Dropdown data={difficulty} setDifficultyChange={setDifficultyChange} />

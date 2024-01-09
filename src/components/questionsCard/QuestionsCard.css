@@ -6,7 +6,7 @@
 .questionsCard-title {
     font-size: 24px;
     font-weight: bold;
-    color: black;
+    color: white;
     margin-bottom: 10px;
 }
 
@@ -31,7 +31,7 @@
     font-size: 25px;
     font-weight: bold;
     background-color: white;
-    color: darkred;
+    color: rgb(162, 16, 16);
     border-radius: 50%;
     display: flex;
     align-items: center;

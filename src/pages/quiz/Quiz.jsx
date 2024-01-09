@@ -13,12 +13,16 @@ const Quiz = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const data = await api.fetchQuizData(difficulty, amount);
-      setQuestionsData(data);
+      try {
+        const data = await api.fetchQuizData(difficulty, amount);
+        setQuestionsData(data);
+      } catch (error) {
+        console.error("Error fetching quiz data:", error);
+      }
     };
+
     getData();
   }, [difficulty, amount]);
-  console.log(questionsData, "questionsData");
 
   return (
     <div className="quiz">

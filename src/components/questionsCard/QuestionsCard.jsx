@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./QuestionsCard.css";
 
-const QuestionsCard = (
+const QuestionsCard = ({
   questionsData,
   score,
   setScore,
   count,
   setCount,
   modal,
-  setModal
-) => {
+  setModal,
+}) => {
+  console.log("QuestionsData in QuestionsCard:", questionsData);
   const [timer, setTimer] = useState(30);
 
   const approvedChoice = (e) => {
     console.log(e.currentTarget.value);
     const checkAnswer =
-      e.currentTarget.value == questionsData[count]?.correct_answer; //Cevabın doğruluğunun kontrolü
+      e.currentTarget.value === questionsData[count]?.correct_answer; //Cevabın doğruluğunun kontrolü
     console.log(checkAnswer);
     if (checkAnswer) {
       setScore(score + 100); //Doğruysa scoru arttır
@@ -40,7 +41,7 @@ const QuestionsCard = (
     return () => {
       clearInterval(interval); // Düşerken anormal gözükmesin diye
     };
-  }, [timer]);
+  }, [timer, count, setCount, setModal]);
 
   return (
     <div className="questionsCard">
